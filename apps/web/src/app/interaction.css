@@ -1,0 +1,83 @@
+/* Apple-design audit: immediate feedback, legible focus and restrained depth. */
+:root {
+  --focus-ring: #167b67;
+}
+html[data-theme="dark"] {
+  --focus-ring: #76c9ad;
+}
+body {
+  font-optical-sizing: auto;
+}
+:is(button, a, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+:is(button, a, [role="button"], summary) {
+  touch-action: manipulation;
+}
+:is(.btn, .icon-button, .tab, .nav-link, .live-conversation):not(
+    :disabled
+  ):active {
+  filter: brightness(0.92);
+}
+.studio .topbar {
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+  backdrop-filter: blur(20px) saturate(130%);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--ink) 3%, transparent);
+}
+.studio .page-heading h1 {
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+.studio .page-heading p {
+  line-height: 1.65;
+}
+.studio .modal-header h2 {
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+.studio :is(.icon-button, .modal-header .btn) {
+  min-width: 44px;
+  min-height: 44px;
+}
+.live-thread-header strong {
+  overflow-wrap: anywhere;
+}
+.live-inbox-layout {
+  --surface: var(--white);
+}
+@media (pointer: coarse), (max-width: 760px) {
+  :is(.btn.small, .table-action, .tab, .text-button) {
+    min-height: 44px;
+  }
+  .studio .user-row button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .studio .top-actions {
+    gap: 4px;
+  }
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .studio .topbar {
+    background: var(--paper);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+@media (prefers-contrast: more) {
+  .studio :is(.panel, .modal, .notification-panel, .live-inbox-layout) {
+    border-color: var(--ink);
+  }
+  :root {
+    --muted: var(--ink);
+    --line-strong: var(--ink);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.modal, .notification-panel, .sidebar, .main-shell) {
+    animation: none !important;
+    transition: none !important;
+  }
+}

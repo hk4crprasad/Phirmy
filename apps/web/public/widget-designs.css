@@ -1,0 +1,386 @@
+/* Shared by the embedded Shadow DOM and the dashboard preview. */
+.wd-root {
+  --wd-style: minimal;
+  --wd-surface: var(--preview-surface, var(--surface, #fff));
+  --wd-ink: var(--preview-ink, var(--ink, #24272b));
+  --wd-primary: var(--preview-primary, var(--primary, #24272b));
+  --wd-on-primary: var(--preview-on-primary, var(--on-primary, #fff));
+  --wd-line: var(--preview-line, var(--line, #e8e9eb));
+  --wd-soft: color-mix(in srgb, var(--wd-surface) 94%, var(--wd-ink));
+  --wd-shadow: 0 20px 64px #18233318, 0 3px 10px #18233308;
+}
+.wd-root .wd-panel {
+  background: var(--wd-surface);
+  color: var(--wd-ink);
+  border: 1px solid var(--wd-line);
+  box-shadow: var(--wd-shadow);
+}
+.wd-root .wd-header {
+  background: transparent;
+  border-bottom: 1px solid var(--wd-line);
+  padding: 19px 18px;
+  letter-spacing: 0.01em;
+}
+.wd-root .wd-log {
+  padding: 18px;
+  gap: 16px;
+}
+.wd-root .wd-message {
+  flex-shrink: 0;
+  background: var(--wd-soft);
+  border: 1px solid transparent;
+  border-radius: 13px;
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.wd-root .wd-message.wd-user {
+  background: var(--preview-user, var(--user-color, var(--wd-primary)));
+  color: var(--preview-on-user, var(--user-text, var(--wd-on-primary)));
+}
+.wd-root .wd-composer {
+  border-top: 1px solid var(--wd-line);
+  padding: 13px;
+  gap: 9px;
+  background: transparent;
+}
+.wd-root .wd-composer input,
+.wd-root .wd-composer > span {
+  background: var(--wd-surface);
+  border: 1px solid var(--wd-line);
+  border-radius: 10px;
+}
+.wd-root .wd-composer button,
+.wd-root .wd-composer > b {
+  background: var(--wd-primary);
+  color: var(--wd-on-primary);
+  border-radius: 10px;
+  font-weight: 500;
+}
+.wd-root .wd-footer {
+  padding: 3px 17px 12px;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  opacity: 0.68;
+}
+.wd-root .wd-launcher {
+  box-shadow: 0 7px 24px #15233220;
+  min-height: 49px;
+  letter-spacing: 0.01em;
+}
+.wd-root .wd-products {
+  display: grid;
+  gap: 9px;
+  margin-top: 12px;
+}
+.wd-root .product {
+  display: grid;
+  gap: 5px;
+  border: 1px solid var(--wd-line);
+  border-radius: 10px;
+  padding: 10px;
+  text-decoration: none;
+  background: color-mix(in srgb, var(--wd-surface) 85%, transparent);
+}
+.wd-root[data-widget-design="glassmorphism"] {
+  --wd-style: glassmorphism;
+}
+.wd-root[data-widget-design="glassmorphism"] .wd-panel {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--wd-surface) 84%, transparent),
+    color-mix(in srgb, var(--wd-surface) 62%, transparent)
+  );
+  -webkit-backdrop-filter: blur(26px) saturate(135%);
+  backdrop-filter: blur(26px) saturate(135%);
+  border-color: color-mix(in srgb, var(--wd-surface) 88%, white);
+  box-shadow:
+    0 24px 70px #18364f24,
+    inset 0 1px #ffffffb0;
+}
+.wd-root[data-widget-design="glassmorphism"] .wd-header,
+.wd-root[data-widget-design="glassmorphism"] .wd-composer {
+  background: #ffffff14;
+}
+.wd-root[data-widget-design="glassmorphism"] .wd-message:not(.wd-user) {
+  background: color-mix(in srgb, var(--wd-surface) 60%, transparent);
+  border-color: #ffffff70;
+}
+.wd-root[data-widget-design="glassmorphism"] .wd-launcher {
+  box-shadow:
+    0 10px 26px #1c385330,
+    inset 0 1px #ffffff40;
+}
+.wd-root[data-widget-design="claymorphism"] {
+  --wd-style: claymorphism;
+}
+.wd-root[data-widget-design="claymorphism"] .wd-panel {
+  border-color: transparent;
+  box-shadow:
+    14px 20px 40px #75495926,
+    inset 5px 5px 12px #ffffffb0,
+    inset -5px -5px 14px #b78a8e30;
+}
+.wd-root[data-widget-design="claymorphism"] .wd-header {
+  border: 0;
+  padding: 23px 21px 13px;
+}
+.wd-root[data-widget-design="claymorphism"] .wd-message:not(.wd-user) {
+  background: var(--wd-surface);
+  box-shadow:
+    inset 3px 3px 7px #ffffffaa,
+    4px 5px 10px #97677b19;
+  border-radius: 20px;
+}
+.wd-root[data-widget-design="claymorphism"] .wd-launcher,
+.wd-root[data-widget-design="claymorphism"] .wd-composer button,
+.wd-root[data-widget-design="claymorphism"] .wd-composer > b {
+  box-shadow:
+    inset 3px 3px 7px #ffffff32,
+    inset -3px -3px 7px #44253630,
+    4px 5px 10px #97677b20;
+  border-radius: 18px;
+}
+.wd-root[data-widget-design="skeuomorphism"] {
+  --wd-style: skeuomorphism;
+}
+.wd-root[data-widget-design="skeuomorphism"] .wd-panel {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      #805b3004 0,
+      #805b3004 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    var(--wd-surface);
+  border: 2px solid var(--wd-line);
+  box-shadow:
+    0 18px 38px #47321b2b,
+    inset 0 0 0 4px #fff8e8;
+}
+.wd-root[data-widget-design="skeuomorphism"] .wd-header {
+  background: linear-gradient(#ffffff18, #00000010), var(--wd-primary);
+  color: var(--wd-on-primary);
+  border-bottom: 3px double color-mix(in srgb, var(--wd-primary) 65%, black);
+  text-shadow: 0 1px #00000035;
+}
+.wd-root[data-widget-design="skeuomorphism"] .wd-message:not(.wd-user) {
+  background: color-mix(in srgb, var(--wd-surface) 80%, white);
+  border: 1px dashed var(--wd-line);
+  box-shadow: 0 2px 3px #493b2d0c;
+}
+.wd-root[data-widget-design="skeuomorphism"] .wd-composer input,
+.wd-root[data-widget-design="skeuomorphism"] .wd-composer > span {
+  box-shadow: inset 0 2px 4px #513d2920;
+}
+.wd-root[data-widget-design="skeuomorphism"] .wd-launcher {
+  background: linear-gradient(#ffffff18, #00000018), var(--wd-primary);
+  box-shadow:
+    0 3px 0 color-mix(in srgb, var(--wd-primary) 70%, black),
+    0 9px 20px #47321b24;
+  border: 1px solid #ffffff30;
+}
+.wd-root[data-widget-design="neobrutalism"] {
+  --wd-style: neobrutalism;
+}
+.wd-root[data-widget-design="neobrutalism"] .wd-panel {
+  border: 2px solid var(--wd-ink);
+  box-shadow: 8px 8px 0 var(--wd-ink);
+}
+.wd-root[data-widget-design="neobrutalism"] .wd-header {
+  background: var(--wd-primary);
+  color: var(--wd-on-primary);
+  border-bottom: 2px solid var(--wd-ink);
+  font-weight: 800;
+}
+.wd-root[data-widget-design="neobrutalism"] .wd-message {
+  border: 1.5px solid var(--wd-ink);
+  border-radius: 5px;
+  background: var(--wd-surface);
+}
+.wd-root[data-widget-design="neobrutalism"] .wd-composer input,
+.wd-root[data-widget-design="neobrutalism"] .wd-composer > span,
+.wd-root[data-widget-design="neobrutalism"] .wd-composer button,
+.wd-root[data-widget-design="neobrutalism"] .wd-composer > b {
+  border: 1.5px solid var(--wd-ink);
+  border-radius: 4px;
+}
+.wd-root[data-widget-design="neobrutalism"] .wd-launcher {
+  border: 2px solid var(--wd-ink);
+  box-shadow: 4px 4px 0 var(--wd-ink);
+  font-weight: 700;
+}
+.wd-root[data-widget-design="bento"] {
+  --wd-style: bento;
+}
+.wd-root[data-widget-design="bento"] .wd-panel {
+  padding: 10px;
+  border-color: transparent;
+  box-shadow: 0 22px 58px #26334b24;
+}
+.wd-root[data-widget-design="bento"] .wd-header {
+  background: color-mix(in srgb, var(--wd-surface) 70%, white);
+  border: 0;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 2px;
+}
+.wd-root[data-widget-design="bento"] .wd-log {
+  padding: 12px 4px;
+  gap: 10px;
+}
+.wd-root[data-widget-design="bento"] .wd-message:not(.wd-user) {
+  background: color-mix(in srgb, var(--wd-surface) 45%, white);
+  border: 0;
+  border-radius: 15px;
+}
+.wd-root[data-widget-design="bento"] .wd-composer {
+  background: color-mix(in srgb, var(--wd-surface) 45%, white);
+  border: 0;
+  border-radius: 14px;
+  padding: 9px;
+}
+.wd-root[data-widget-design="bento"] .wd-products {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+}
+.wd-root[data-widget-design="bento"] .product {
+  min-width: 0;
+  padding: 8px;
+  font-size: 11px;
+}
+.wd-root[data-widget-design="bento"] .wd-footer {
+  padding: 10px 6px 2px;
+}
+.wd-root[data-widget-design="neumorphism"] {
+  --wd-style: neumorphism;
+}
+.wd-root[data-widget-design="neumorphism"] .wd-panel {
+  border-color: transparent;
+  box-shadow:
+    12px 12px 30px #6b7f942e,
+    -9px -9px 24px #ffffffa0;
+}
+.wd-root[data-widget-design="neumorphism"] .wd-header {
+  border: 0;
+  padding-bottom: 10px;
+}
+.wd-root[data-widget-design="neumorphism"] .wd-message:not(.wd-user) {
+  background: var(--wd-surface);
+  border: 0;
+  box-shadow:
+    5px 5px 12px #6b7f9422,
+    -4px -4px 10px #ffffffb0;
+}
+.wd-root[data-widget-design="neumorphism"] .wd-composer input,
+.wd-root[data-widget-design="neumorphism"] .wd-composer > span {
+  background: var(--wd-surface);
+  border: 0;
+  box-shadow:
+    inset 4px 4px 8px #6b7f9424,
+    inset -4px -4px 8px #ffffffb0;
+}
+.wd-root[data-widget-design="neumorphism"] .wd-launcher {
+  box-shadow:
+    6px 6px 14px #6b7f9430,
+    -4px -4px 12px #ffffff80;
+}
+.wd-root[data-widget-design="aurora"] {
+  --wd-style: aurora;
+}
+.wd-root[data-widget-design="aurora"] .wd-panel {
+  background:
+    radial-gradient(ellipse at 0 0, #7963cb42, transparent 65%),
+    radial-gradient(ellipse at 100% 100%, #4e859e28, transparent 60%),
+    var(--wd-surface);
+  border-color: #a99aea55;
+  box-shadow:
+    0 25px 65px #16132945,
+    0 0 30px #9d8ce612;
+}
+.wd-root[data-widget-design="aurora"] .wd-header {
+  background: linear-gradient(120deg, #b1a0ef16, #73b0ad10);
+  border-bottom-color: #b1a0ef25;
+}
+.wd-root[data-widget-design="aurora"] .wd-message:not(.wd-user) {
+  background: #ffffff08;
+  border-color: #b9adff22;
+}
+.wd-root[data-widget-design="aurora"] .wd-launcher {
+  box-shadow:
+    0 8px 30px #8470d940,
+    inset 0 1px #ffffff60;
+}
+.wd-root[data-widget-design="editorial"] {
+  --wd-style: editorial;
+}
+.wd-root[data-widget-design="editorial"] .wd-panel {
+  box-shadow: 0 16px 45px #493b2718;
+  border-top: 4px solid var(--wd-ink);
+}
+.wd-root[data-widget-design="editorial"] .wd-header {
+  letter-spacing: 0.04em;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 3px double var(--wd-line);
+}
+.wd-root[data-widget-design="editorial"] .wd-message:not(.wd-user) {
+  background: transparent;
+  border: 0;
+  border-left: 2px solid var(--wd-line);
+  border-radius: 0;
+  padding-left: 13px;
+}
+.wd-root[data-widget-design="editorial"] .wd-footer {
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+.wd-root[data-widget-design="editorial"] .wd-launcher {
+  box-shadow: none;
+  border-bottom: 3px solid color-mix(in srgb, var(--wd-primary) 70%, black);
+  letter-spacing: 0.04em;
+}
+.wd-root[data-widget-design="monochrome"] {
+  --wd-style: monochrome;
+}
+.wd-root[data-widget-design="monochrome"] .wd-panel {
+  box-shadow: 0 24px 70px #00000035;
+  border: 1px solid var(--wd-line);
+}
+.wd-root[data-widget-design="monochrome"] .wd-header {
+  background: transparent;
+  border-bottom: 1px solid var(--wd-line);
+}
+.wd-root[data-widget-design="monochrome"] .wd-message:not(.wd-user) {
+  background: #ffffff04;
+  border-color: var(--wd-line);
+}
+.wd-root[data-widget-design="monochrome"] .wd-launcher {
+  box-shadow: 0 8px 30px #00000024;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wd-root * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+.wd-root :is(button, input):focus-visible {
+  outline: 2px solid var(--wd-ink);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .wd-root[data-widget-design="glassmorphism"] .wd-panel {
+    background: var(--wd-surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+@media (prefers-contrast: more) {
+  .wd-root .wd-panel,
+  .wd-root .wd-composer input {
+    border-color: var(--wd-ink);
+  }
+}

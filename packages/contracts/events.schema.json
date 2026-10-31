@@ -1,0 +1,499 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.test/schemas/events-v1.json",
+  "title": "Application JSON control and domain events",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "client.start"
+        },
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "session_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "input_format": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "codec": {
+              "type": "string",
+              "const": "pcm_s16le"
+            },
+            "sample_rate": {
+              "type": "integer",
+              "enum": [16000, 24000]
+            },
+            "channels": {
+              "type": "integer",
+              "const": 1
+            }
+          },
+          "required": ["codec", "sample_rate", "channels"]
+        }
+      },
+      "required": [
+        "type",
+        "event_id",
+        "timestamp",
+        "session_id",
+        "input_format"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "client.stop"
+        },
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "call_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "reason": {
+          "type": "string",
+          "enum": ["user_stop", "tab_close", "error"]
+        }
+      },
+      "required": ["type", "event_id", "timestamp", "call_id", "reason"]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "server.ready"
+        },
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "call_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "epoch": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "input_format": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "codec": {
+              "type": "string",
+              "const": "pcm_s16le"
+            },
+            "sample_rate": {
+              "type": "integer",
+              "enum": [16000, 24000]
+            },
+            "channels": {
+              "type": "integer",
+              "const": 1
+            }
+          },
+          "required": ["codec", "sample_rate", "channels"]
+        },
+        "output_format": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "codec": {
+              "type": "string",
+              "const": "pcm_s16le"
+            },
+            "sample_rate": {
+              "type": "integer",
+              "enum": [16000, 24000]
+            },
+            "channels": {
+              "type": "integer",
+              "const": 1
+            }
+          },
+          "required": ["codec", "sample_rate", "channels"]
+        }
+      },
+      "required": [
+        "type",
+        "event_id",
+        "timestamp",
+        "call_id",
+        "epoch",
+        "input_format",
+        "output_format"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "server.transcript"
+        },
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "call_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "turn_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "epoch": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "speaker": {
+          "type": "string",
+          "enum": ["user", "assistant"]
+        },
+        "text": {
+          "type": "string"
+        },
+        "final": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "event_id",
+        "timestamp",
+        "call_id",
+        "turn_id",
+        "epoch",
+        "speaker",
+        "text",
+        "final"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "server.clear"
+        },
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "call_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "epoch": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "reason": {
+          "type": "string",
+          "enum": ["interruption", "cancel", "shutdown"]
+        }
+      },
+      "required": [
+        "type",
+        "event_id",
+        "timestamp",
+        "call_id",
+        "epoch",
+        "reason"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "server.turn_state"
+        },
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "call_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "epoch": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "state": {
+          "type": "string",
+          "enum": ["listening", "thinking", "speaking", "ending"]
+        }
+      },
+      "required": ["type", "event_id", "timestamp", "call_id", "epoch", "state"]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "server.ended"
+        },
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "call_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "state": {
+          "type": "string",
+          "enum": ["completed", "failed", "canceled"]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "connected_ms": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "type",
+        "event_id",
+        "timestamp",
+        "call_id",
+        "state",
+        "reason",
+        "connected_ms"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "server.error"
+        },
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "call_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retryable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "event_id",
+        "timestamp",
+        "call_id",
+        "code",
+        "message",
+        "retryable"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "job.progress"
+        },
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "job_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "workspace_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "state": {
+          "type": "string",
+          "enum": ["queued", "running", "completed", "failed", "canceled"]
+        },
+        "phase": {
+          "type": "string",
+          "minLength": 1
+        },
+        "completed_items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_items": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "type",
+        "event_id",
+        "timestamp",
+        "job_id",
+        "workspace_id",
+        "state",
+        "phase",
+        "completed_items",
+        "total_items"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "call.state"
+        },
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "call_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "workspace_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "created",
+            "connecting",
+            "ringing",
+            "connected",
+            "ending",
+            "completed",
+            "failed",
+            "canceled",
+            "no_answer",
+            "busy"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "event_id",
+        "timestamp",
+        "call_id",
+        "workspace_id",
+        "state"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "ticket.created"
+        },
+        "event_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ticket_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "workspace_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "conversation_id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "type",
+        "event_id",
+        "timestamp",
+        "ticket_id",
+        "workspace_id",
+        "conversation_id"
+      ]
+    }
+  ]
+}

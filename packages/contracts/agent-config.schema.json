@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.test/schemas/agent-config-v1.json",
+  "title": "Published agent configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "greeting": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1200
+    },
+    "instructions": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40000
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 32
+    },
+    "llm": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "provider": {
+          "type": "string",
+          "enum": ["openai", "openai-compatible"]
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "reasoning_effort": {
+          "type": "string",
+          "enum": ["none", "low"]
+        },
+        "max_output_tokens": {
+          "type": "integer",
+          "minimum": 64,
+          "maximum": 4096
+        },
+        "profile_id": {
+          "type": ["string", "null"],
+          "format": "uuid"
+        }
+      },
+      "required": ["provider", "model", "reasoning_effort", "max_output_tokens"]
+    },
+    "speech": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "provider": {
+          "type": "string",
+          "enum": ["fish", "sarvam"]
+        },
+        "model": {
+          "type": "string",
+          "enum": ["s2.1-pro", "s2.1-pro-free", "s2-pro", "drama-3", "bulbul:v4-flash"]
+        },
+        "voice_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "language_code": {
+          "type": "string",
+          "enum": ["auto", "en-IN", "hi-IN", "bn-IN", "gu-IN", "kn-IN", "ml-IN", "mr-IN", "od-IN", "pa-IN", "ta-IN", "te-IN"]
+        },
+        "live_stt_provider": {
+          "type": "string",
+          "enum": ["deepgram", "sarvam"]
+        },
+        "live_stt_model": {
+          "type": "string",
+          "enum": ["nova-3", "saaras:v4"]
+        },
+        "live_stt_language": {
+          "type": "string",
+          "minLength": 1
+        },
+        "postcall_asr_model": {
+          "type": "string",
+          "const": "transcribe-1-pro"
+        }
+      },
+      "required": [
+        "provider",
+        "model",
+        "voice_id",
+        "live_stt_provider",
+        "live_stt_model",
+        "live_stt_language",
+        "postcall_asr_model"
+      ]
+    },
+    "knowledge_snapshot_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "uniqueItems": true
+    },
+    "priority_guidance": {
+      "type": "string",
+      "maxLength": 12000
+    },
+    "variables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_]*$"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "default": {
+            "type": ["string", "null"]
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 500
+          }
+        },
+        "required": ["name", "required", "default", "description"]
+      }
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "schema_revision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "timeout_ms": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 120000
+          },
+          "side_effecting": {
+            "type": "boolean"
+          },
+          "scheduling_provider": {
+            "type": "string",
+            "enum": ["calcom", "calendly"]
+          },
+          "tool_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": ["name", "schema_revision", "timeout_ms", "side_effecting"]
+      }
+    },
+    "behavior": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "interruptible": {
+          "type": "boolean"
+        },
+        "silence_prompt_seconds": {
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 60
+        },
+        "idle_end_seconds": {
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 180
+        },
+        "max_connected_seconds": {
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 3600
+        },
+        "max_tool_rounds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8
+        }
+      },
+      "required": [
+        "interruptible",
+        "silence_prompt_seconds",
+        "idle_end_seconds",
+        "max_connected_seconds",
+        "max_tool_rounds"
+      ]
+    },
+    "recording": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "retention_days": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 365
+        }
+      },
+      "required": ["enabled", "retention_days"]
+    },
+    "postcall": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "analysis_enabled": {
+          "type": "boolean"
+        },
+        "capture_lead": {
+          "type": "boolean"
+        },
+        "webhook_endpoint_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": ["analysis_enabled", "capture_lead", "webhook_endpoint_ids"]
+    }
+  },
+  "required": [
+    "schema_version",
+    "name",
+    "greeting",
+    "instructions",
+    "language",
+    "llm",
+    "speech",
+    "knowledge_snapshot_ids",
+    "priority_guidance",
+    "variables",
+    "tools",
+    "behavior",
+    "recording",
+    "postcall"
+  ]
+}

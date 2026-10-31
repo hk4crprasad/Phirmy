@@ -1,0 +1,24 @@
+[Unit]
+Description=Phirmy contact enquiry API and email outbox
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=phirmy-contact
+Group=phirmy-contact
+WorkingDirectory=/opt/phirmy-contact
+Environment=CONTACT_HOSTED=true
+Environment=CONTACT_DATA_DIR=/var/lib/phirmy-contact
+Environment=CONTACT_SMTP_FILE=/etc/phirmy/smtp.json
+ExecStart=/opt/phirmy-contact/.venv/bin/python /opt/phirmy-contact/scripts/run_mainpage_contact.py
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/phirmy-contact
+
+[Install]
+WantedBy=multi-user.target

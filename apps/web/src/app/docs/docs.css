@@ -1,0 +1,201 @@
+@layer base {
+  .developer-docs {
+    background: var(--surface-soft);
+    min-height: 100dvh;
+    color: var(--ink);
+    font-size: 15px;
+  }
+  .developer-docs > header {
+    height: 78px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: var(--white);
+  }
+  .developer-docs > header > a:last-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .docs-label {
+    font: 11px var(--font-body);
+    border-left: 1px solid var(--line);
+    padding-left: 16px;
+    margin-left: 12px;
+    letter-spacing: 0;
+  }
+  .docs-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    max-width: 1420px;
+    margin: auto;
+  }
+  .docs-layout > aside {
+    position: sticky;
+    top: 0;
+    height: calc(100dvh - 80px);
+    padding: 40px 25px;
+    border-right: 1px solid var(--line);
+  }
+  .docs-layout > aside > div {
+    font-size: 9px;
+    letter-spacing: 1.3px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: var(--secondary);
+  }
+  .docs-layout > aside > a {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 13px;
+    color: var(--secondary);
+  }
+  .docs-layout > article {
+    padding: 58px min(7vw, 100px);
+    max-width: 1030px;
+    min-width: 0;
+  }
+  .developer-docs section {
+    scroll-margin-top: 30px;
+    border-bottom: 1px solid var(--line);
+    padding: 0 0 45px;
+    margin-bottom: 45px;
+  }
+  .developer-docs h1 {
+    font-size: 43px;
+    letter-spacing: -1.8px;
+    line-height: 1.15;
+    font-weight: 600;
+  }
+  .developer-docs h2 {
+    font-size: 25px;
+    letter-spacing: -0.8px;
+    margin: 23px 0 16px;
+    font-weight: 600;
+  }
+  .developer-docs h3 {
+    font-size: 17px;
+    margin: 26px 0 12px;
+  }
+  .developer-docs p {
+    color: var(--secondary);
+    line-height: 1.9;
+    margin: 15px 0;
+    font-size: 14px;
+  }
+  .developer-docs .docs-intro {
+    font-size: 17px;
+    margin: 24px 0 38px;
+    max-width: 600px;
+  }
+  .developer-docs .docs-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.7px;
+    margin: 0 0 25px;
+  }
+  .developer-docs pre {
+    padding: 23px;
+    background: var(--primary);
+    color: var(--muted);
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    overflow: auto;
+    line-height: 1.9;
+    font-size: 11px;
+    margin: 20px 0;
+    max-width: 100%;
+  }
+  .developer-docs p > code {
+    background: var(--surface-soft);
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+  }
+  .developer-docs section > a {
+    font-size: 12px;
+    text-decoration: underline;
+    color: var(--secondary);
+  }
+  .developer-docs table {
+    white-space: normal;
+    margin: 23px 0;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+  .developer-docs td,
+  .developer-docs th {
+    font-size: 12px;
+    line-height: 1.7;
+    padding: 13px 16px;
+    color: var(--secondary);
+  }
+  .developer-docs article > footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--secondary);
+  }
+  .developer-docs article > footer > a {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .developer-docs > header {
+      height: 68px;
+      padding: 0 20px;
+    }
+    .developer-docs .brand {
+      font-size: 18px;
+    }
+    .docs-label {
+      display: none;
+    }
+    .docs-layout {
+      grid-template-columns: 1fr;
+    }
+    .docs-layout > aside {
+      position: static;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+      height: auto;
+      padding: 20px;
+      display: flex;
+      gap: 6px 18px;
+      flex-wrap: wrap;
+    }
+    .docs-layout > aside > div {
+      display: none;
+    }
+    .docs-layout > aside > a {
+      font-size: 11px;
+      padding: 4px 0;
+    }
+    .docs-layout > article {
+      padding: 34px 22px;
+    }
+    .developer-docs h1 {
+      font-size: 33px;
+    }
+    .developer-docs pre {
+      font-size: 10px;
+      padding: 17px;
+    }
+    .developer-docs h2 {
+      font-size: 22px;
+    }
+    .developer-docs td,
+    .developer-docs th {
+      padding: 10px;
+      font-size: 10px;
+    }
+  }
+}

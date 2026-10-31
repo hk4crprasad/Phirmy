@@ -1,0 +1,44 @@
+{
+  "version": "DRAFT-2026-10-25",
+  "status": "DRAFT",
+  "notice": "DRAFT FOR LAWYER REVIEW. These placeholders are not approved legal terms. Business identity, jurisdictions, lawful bases, subprocessor commitments and statutory rights require review before public launch.",
+  "documents": {
+    "terms": {
+      "title": "Terms of Service",
+      "sections": [
+        {"title": "Service and account responsibilities", "body": "DRAFT: Voice Studio provides website assistants, messaging and voice tools. Review account authority, permitted use, service availability and responsibility for published content and connected tools."},
+        {"title": "Charges and cancellation", "body": "DRAFT: Paid activation is disabled until commercial approval. Review plan allowances, metering, taxes, renewal notices, cancellation, refunds and dispute handling against the final pricing and billing policy."},
+        {"title": "Rights, liability and disputes", "body": "DRAFT: Counsel must supply the contracting entity, governing law, dispute process, intellectual-property terms, warranties, liability limits and termination provisions."}
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Notice",
+      "sections": [
+        {"title": "Information and processing", "body": "DRAFT: Review processing of account details, website content, conversations, verified visitor email, call transcripts, optional recordings, usage and billing records. Connected model, speech, storage, calendar and payment providers may process the information needed for their requested functions."},
+        {"title": "Choices and data rights", "body": "DRAFT: Email collection and marketing consent are separate. Review the deletion, export and retention controls and any legal retention exceptions. Counsel must approve lawful bases, retention periods, international transfers, subprocessors and regional rights."},
+        {"title": "Controller and contact", "body": "DRAFT: Supply the legal business identity, privacy contact, applicable representative and complaint process. This placeholder makes no certification or jurisdictional compliance claim."}
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Notice",
+      "sections": [
+        {"title": "Account and application storage", "body": "DRAFT: The dashboard uses session, refresh, CSRF and OAuth-state cookies for authentication and security. Browser storage also holds the chosen colour theme and an explicitly saved preview during onboarding."},
+        {"title": "Optional services", "body": "DRAFT: Payment checkout and the configured bot challenge may use their providers' storage. Counsel must review the exact deployed services, consent requirements, cookie lifetimes and the final privacy-respecting analytics configuration."}
+      ]
+    },
+    "acceptable-use": {
+      "title": "Acceptable Use Policy",
+      "sections": [
+        {"title": "Permitted use", "body": "DRAFT: Do not use the service for unlawful activity, harassment, fraud, deceptive impersonation, unsolicited calling, privacy invasion or attempts to bypass security or spending controls. Publish only content you are authorised to use."},
+        {"title": "Voice and connected actions", "body": "DRAFT: Obtain applicable contact and recording permissions, honour do-not-call requests and calling windows, identify AI assistants and review side-effect tools. Counsel must approve enforcement, suspension, appeal and notice procedures."}
+      ]
+    },
+    "dpa": {
+      "title": "Data Processing Addendum",
+      "sections": [
+        {"title": "Processing schedule", "body": "DRAFT: Counsel must define controller/processor roles, processing instructions, purposes, data subjects, personal-data categories, duration and approved subprocessors for the final deployed service."},
+        {"title": "Required commitments", "body": "DRAFT: Supply security, confidentiality, assistance, breach notification, deletion/return, audit, international-transfer and subprocessor-change commitments. This placeholder is not an executed DPA or an assertion that these contractual commitments have been approved."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.test/schemas/call-analysis-v1.json",
+  "title": "Server-validated post-call analysis",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "call_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "user_turn_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "disposition": {
+      "type": "string",
+      "enum": [
+        "no_engagement",
+        "resolved",
+        "needs_followup",
+        "not_interested",
+        "failed",
+        "unknown"
+      ]
+    },
+    "is_lead": {
+      "type": "boolean"
+    },
+    "lead_reason": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 6000
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": ["positive", "neutral", "negative", "unknown"]
+    },
+    "evidence_turn_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "uniqueItems": true
+    },
+    "requested_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": ["completed", "pending", "failed", "not_requested"]
+          },
+          "resource_id": {
+            "type": ["string", "null"]
+          }
+        },
+        "required": ["action", "status", "resource_id"]
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "call_id",
+    "user_turn_count",
+    "disposition",
+    "is_lead",
+    "lead_reason",
+    "summary",
+    "sentiment",
+    "evidence_turn_ids",
+    "requested_actions",
+    "confidence"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "user_turn_count": {
+            "const": 0
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "disposition": {
+            "const": "no_engagement"
+          },
+          "is_lead": {
+            "const": false
+          },
+          "sentiment": {
+            "const": "unknown"
+          }
+        }
+      }
+    }
+  ]
+}

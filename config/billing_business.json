@@ -1,0 +1,19 @@
+{
+  "version": "DRAFT-2026-10-25",
+  "status": "DRAFT",
+  "entity_id": "draft-business",
+  "legal_name": "DRAFT: legal business name required",
+  "address": "DRAFT: registered business address required",
+  "state_code": "29",
+  "gstin": "",
+  "sac": "998314",
+  "gst_rate_basis_points": 1800,
+  "prices_include_gst": false,
+  "invoice_prefix": "VS",
+  "support_email": "",
+  "payment_terms": "DRAFT: commercial and tax treatment require review",
+  "dunning_grace_days": 7,
+  "refund_policy": "unspent_wallet_only",
+  "downgrade_plan": "free",
+  "subscription_authorization_max_minor": 1000
+}

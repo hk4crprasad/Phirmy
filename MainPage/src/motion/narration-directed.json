@@ -1,0 +1,22 @@
+{
+  "support": [
+    "[warm, bright, speaking to a fellow builder] Your next customer starts with a question. [pause] Make them feel <emphasis>welcome.</emphasis>",
+    "[confident, clear, conversational] Give clear answers, grounded in the knowledge <emphasis>your team</emphasis> shares.",
+    "[encouraging, smiling, gently building energy] Keep the conversation going. [pause] Turn a quick question into <emphasis>connection.</emphasis>"
+  ],
+  "voice": [
+    "[warm, thoughtful, inviting] A real connection starts with <emphasis>being heard.</emphasis> [pause] Let people speak.",
+    "[friendly, assured, natural conversational pace] Your AI agent answers from your business knowledge, in a <emphasis>natural voice.</emphasis>",
+    "[upbeat, inspiring, speaking directly to a creator] Less friction. [pause] More conversation. Build something people <emphasis>want to talk to.</emphasis>"
+  ],
+  "leads": [
+    "[bright, curious, genuinely interested] Someone sees potential in what you are building. [pause] Start a <emphasis>conversation.</emphasis>",
+    "[warm, attentive, reassuring] Understand their plans, then ask <emphasis>permission</emphasis> for your team to follow up.",
+    "[confident, encouraging, smiling] Bring your team the context. [pause] Make that first <emphasis>hello</emphasis> count."
+  ],
+  "booking": [
+    "[welcoming, optimistic, relaxed] Turn curiosity into a conversation. [pause] Help someone find a <emphasis>time.</emphasis>",
+    "[clear, friendly, gently rhythmic] Check your calendar, offer a slot, and ask them to <emphasis>confirm.</emphasis>",
+    "[assured, then warmly excited] Confirm with the calendar before celebrating. [pause] Your next connection <emphasis>starts here.</emphasis>"
+  ]
+}

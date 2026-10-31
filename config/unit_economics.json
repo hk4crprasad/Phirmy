@@ -1,0 +1,14 @@
+{
+  "status": "DRAFT",
+  "default_model": "gpt-5.6-luna",
+  "cache_write_input_bps": 10000,
+  "chat_input_tokens_per_turn": 2000,
+  "chat_output_tokens_per_turn": 200,
+  "embedding_query_tokens_per_turn": 40,
+  "voice_turns_per_minute": 3,
+  "voice_input_tokens_per_turn": 1200,
+  "voice_output_tokens_per_turn": 80,
+  "voice_tts_utf8_bytes_per_minute": 900,
+  "crawl_embedding_tokens_per_page": 1500,
+  "notes": "DRAFT workload scenario, not measured traffic or vendor prices. No prompt cache read savings assumed; conservatively price every input token as a 30-minute cache write when the configured rate is higher. Actual eligible prefixes are smaller and may be reused. UTF-8 speech bytes vary by language. Prices are pre-GST; payment fees, hosting, rendering CPU, support and fixed costs are excluded. Included voice is one shared allowance: phone and browser scenarios are alternatives."
+}

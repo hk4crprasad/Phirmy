@@ -1,0 +1,20 @@
+FROM node:24-slim AS build
+WORKDIR /app
+COPY package.json package-lock.json ./
+COPY apps/web/package.json apps/web/package.json
+RUN --mount=type=secret,id=cloud_ca if [ -f /run/secrets/cloud_ca ]; then NODE_EXTRA_CA_CERTS=/run/secrets/cloud_ca npm ci; else npm ci; fi
+COPY apps/web apps/web
+COPY config config
+ARG API_ORIGIN=http://api:8100
+ENV API_ORIGIN=$API_ORIGIN NEXT_TELEMETRY_DISABLED=1
+RUN npm run build
+
+FROM node:24-slim
+WORKDIR /app
+ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1
+COPY --from=build --chown=node:node /app/package.json /app/package-lock.json ./
+COPY --from=build --chown=node:node /app/node_modules node_modules
+COPY --from=build --chown=node:node /app/apps/web apps/web
+USER node
+EXPOSE 3100
+CMD ["npm", "--workspace", "apps/web", "run", "start"]

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Aurely sample storefront with the live Voice Studio shopping assistant."
+    />
+    <link rel="icon" href="data:," />
+    <title>Aurely · Jewellery for your every day</title>
+    <style>
+      :root {
+        --paper: #f6f3ec;
+        --ink: #252823;
+        --muted: #6d7167;
+        --gold: #8c7048;
+        --line: #dcded2;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font:
+          16px/1.6 Arial,
+          sans-serif;
+      }
+      a {
+        color: inherit;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 0 6%;
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand {
+        font:
+          28px Georgia,
+          serif;
+        letter-spacing: 7px;
+        text-decoration: none;
+      }
+      nav {
+        display: flex;
+        gap: 28px;
+      }
+      nav a {
+        text-decoration: none;
+        font-size: 14px;
+      }
+      .demo-tag {
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      main {
+        max-width: 1280px;
+        margin: auto;
+        padding: 0 6%;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 70px;
+        align-items: center;
+        padding: 58px 0;
+      }
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 0 0 20px;
+      }
+      h1 {
+        font:
+          clamp(44px, 5.5vw, 76px)/1.04 Georgia,
+          serif;
+        letter-spacing: -2px;
+        margin: 0 0 24px;
+        font-weight: 400;
+      }
+      h1 em {
+        color: var(--gold);
+        font-weight: 400;
+      }
+      .intro {
+        color: var(--muted);
+        max-width: 420px;
+        margin: 0 0 30px;
+      }
+      .button {
+        display: inline-block;
+        padding: 13px 23px;
+        background: var(--ink);
+        color: white;
+        text-decoration: none;
+        border: 1px solid var(--ink);
+        font-size: 14px;
+      }
+      .hero-image {
+        position: relative;
+        background: #e9e6dc;
+        border-radius: 48% 48% 3px 3px;
+        overflow: hidden;
+        aspect-ratio: 1/1;
+      }
+      .hero-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        mix-blend-mode: multiply;
+      }
+      .caption {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        margin-top: 24px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .caption:before {
+        content: "";
+        width: 38px;
+        height: 1px;
+        background: var(--gold);
+      }
+      .collection {
+        padding: 24px 0 60px;
+        border-top: 1px solid var(--line);
+      }
+      .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 24px 0;
+      }
+      h2 {
+        font:
+          34px/1.2 Georgia,
+          serif;
+        margin: 0;
+      }
+      .section-heading p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .products {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .product-image {
+        width: 100%;
+        aspect-ratio: 1.25;
+        object-fit: cover;
+        background: #e9e6dc;
+        display: block;
+      }
+      .product h3 {
+        font:
+          20px/1.35 Georgia,
+          serif;
+        margin: 15px 0 6px;
+      }
+      .product p {
+        font-size: 14px;
+        color: var(--muted);
+        margin: 0 0 8px;
+      }
+      .product a {
+        font-size: 13px;
+        text-underline-offset: 4px;
+      }
+      .care {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        border-top: 1px solid var(--line);
+        padding: 38px 0 48px;
+      }
+      .care p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 520px;
+      }
+      footer {
+        padding: 24px 6%;
+        border-top: 1px solid var(--line);
+        font-size: 12px;
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      a:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 5px;
+      }
+      @media (max-width: 700px) {
+        header {
+          margin: 0 6%;
+          padding: 20px 0;
+        }
+        nav {
+          gap: 16px;
+        }
+        nav a {
+          font-size: 12px;
+        }
+        .demo-tag {
+          display: none;
+        }
+        .brand {
+          font-size: 22px;
+          letter-spacing: 5px;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          padding: 38px 0;
+        }
+        .hero-image {
+          max-height: 340px;
+          aspect-ratio: 1.25;
+          border-radius: 44% 44% 3px 3px;
+        }
+        .intro {
+          font-size: 15px;
+        }
+        .section-heading {
+          display: block;
+        }
+        .section-heading p {
+          margin-top: 12px;
+        }
+        .products {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .product-image {
+          aspect-ratio: 1.4;
+        }
+        .care {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        footer {
+          padding-bottom: 90px;
+        }
+        .hero h1 {
+          font-size: 52px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="./index.html" aria-label="Aurely home">AURELY</a>
+      <nav aria-label="Main navigation">
+        <a href="#collection">Collection</a><a href="#care">Jewellery care</a>
+      </nav>
+      <span class="demo-tag">Sample storefront</span>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">A considered collection</p>
+          <h1>Small details.<br /><em>Lasting impressions.</em></h1>
+          <p class="intro">
+            Jewellery for your every day. Find a piece that feels like you, and
+            ask our assistant about the details that matter.
+          </p>
+          <a class="button" href="#collection">Explore the collection ↗</a>
+          <p class="caption">
+            Questions about a piece? Your Aurely guide is a click away.
+          </p>
+        </div>
+        <div class="hero-image">
+          <img
+            src="assets/bangle.webp"
+            alt="Aurely silver-tone geometric designer bangle"
+          />
+        </div>
+      </section>
+      <section class="collection" id="collection">
+        <div class="section-heading">
+          <h2>A few favourites.</h2>
+          <p>Discover the details. Find your kind of forever.</p>
+        </div>
+        <div class="products">
+          <article class="product">
+            <img
+              class="product-image"
+              src="assets/bangle.webp"
+              alt="Silver-tone geometric bangle"
+              loading="lazy"
+            />
+            <h3>Premium Silver-Tone Designer Bangle</h3>
+            <p>₹699 · Imitation jewellery</p>
+            <a
+              href="https://aurelyjewellers.in/product/premium-silver-tone-designer-bangle-for-women"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View this piece ↗</a
+            >
+          </article>
+          <article class="product">
+            <img
+              class="product-image"
+              src="assets/bracelet.webp"
+              alt="Silver-tone crystal tennis bracelet"
+              loading="lazy"
+            />
+            <h3>Round Crystal Tennis Bracelet</h3>
+            <p>₹799</p>
+            <a
+              href="https://aurelyjewellers.in/product/round-crystal-tennis-bracelet"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View this piece ↗</a
+            >
+          </article>
+          <article class="product">
+            <img
+              class="product-image"
+              src="assets/necklace.webp"
+              alt="Gold-tone necklace with an emerald-green pendant"
+              loading="lazy"
+            />
+            <h3>Gold Emerald Pendant Necklace</h3>
+            <p>₹699</p>
+            <a
+              href="https://aurelyjewellers.in/product/gold-emerald-pendant-necklace"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View this piece ↗</a
+            >
+          </article>
+        </div>
+      </section>
+      <section class="care" id="care">
+        <div>
+          <p class="eyebrow">A little care goes a long way</p>
+          <h2>Keep your pieces beautiful.</h2>
+        </div>
+        <p>
+          Ask your Aurely guide about jewellery care, materials, prices,
+          delivery and returns. Answers come from the connected Aurely website
+          knowledge.
+        </p>
+      </section>
+    </main>
+    <footer>
+      <span>© Aurely · Sample storefront</span
+      ><span>Shopping assistance by Voice Studio</span>
+    </footer>
+    <!-- The embed contains only an installation ID and an origin-bound publishable key. -->
+    <!-- AURELY_WIDGET_EMBED -->
+    <script
+      defer
+      src="http://127.0.0.1:3100/widget.js"
+      data-widget-id="3P1ap4o2rTwOsSIcCe19gsx0"
+      data-public-key="cyne_pk_1sa0faONsPrtMhDyPaLbCtPe_PgspYzM"
+    ></script>
+  </body>
+</html>

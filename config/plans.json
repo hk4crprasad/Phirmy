@@ -1,0 +1,194 @@
+{
+  "version": "DRAFT-2026-10-29-full-beta-testing",
+  "status": "DRAFT",
+  "currency": "INR",
+  "provider_rates": {
+    "embedding_minor_per_million_tokens": 2000,
+    "llm_input_minor_per_million_tokens": 100000,
+    "llm_cached_input_minor_per_million_tokens": 25000,
+    "llm_output_minor_per_million_tokens": 500000,
+    "stt_minor_per_minute": 120,
+    "tts_minor_per_million_utf8_bytes": 500000,
+    "carrier_minor_per_minute": 800,
+    "storage_minor_per_gb_month": 1000,
+    "llm_cache_write_30m_minor_per_million_tokens": 125000,
+    "llm_cache_write_12h_minor_per_million_tokens": 250000,
+    "sarvam_stt_minor_per_minute": 49,
+    "sarvam_tts_minor_per_million_characters": 100000
+  },
+  "plans": {
+    "free": {
+      "name": "Free",
+      "monthly_price_minor": 0,
+      "self_serve": true,
+      "included": {
+        "conversations": 1000,
+        "chat_turns": 10000,
+        "voice_ms": 7200000,
+        "crawl_pages": 5000,
+        "storage_bytes": 1000000000,
+        "seats": 5,
+        "widgets": 5
+      },
+      "spend_cap_minor": 150000,
+      "voice_retail_minor_per_minute": 2000,
+      "chat_turn_retail_minor": 100,
+      "voice_billing": "included"
+    },
+    "starter": {
+      "name": "Starter",
+      "monthly_price_minor": 99900,
+      "self_serve": true,
+      "included": {
+        "conversations": 2000,
+        "chat_turns": 25000,
+        "voice_ms": 7200000,
+        "crawl_pages": 5000,
+        "storage_bytes": 2000000000,
+        "seats": 5,
+        "widgets": 5
+      },
+      "spend_cap_minor": 200000,
+      "voice_retail_minor_per_minute": 1800,
+      "chat_turn_retail_minor": 90,
+      "voice_billing": "included"
+    },
+    "growth": {
+      "name": "Growth",
+      "monthly_price_minor": 499900,
+      "self_serve": true,
+      "included": {
+        "conversations": 10000,
+        "chat_turns": 100000,
+        "voice_ms": 36000000,
+        "crawl_pages": 10000,
+        "storage_bytes": 10000000000,
+        "seats": 10,
+        "widgets": 10
+      },
+      "spend_cap_minor": 1000000,
+      "voice_retail_minor_per_minute": 1500,
+      "chat_turn_retail_minor": 75,
+      "voice_billing": "included"
+    },
+    "custom": {
+      "name": "Custom",
+      "monthly_price_minor": 0,
+      "self_serve": false,
+      "included": {
+        "conversations": 10000,
+        "chat_turns": 100000,
+        "voice_ms": 36000000,
+        "crawl_pages": 5000,
+        "storage_bytes": 5000000000,
+        "seats": 10,
+        "widgets": 10
+      },
+      "spend_cap_minor": 1000000,
+      "voice_retail_minor_per_minute": 1500,
+      "chat_turn_retail_minor": 75,
+      "voice_billing": "wallet"
+    }
+  },
+  "development_voice_minor_per_minute": 600,
+  "model_rates": {
+    "gpt-5.6-luna": {
+      "embedding_minor_per_million_tokens": 2000,
+      "llm_input_minor_per_million_tokens": 100000,
+      "llm_cached_input_minor_per_million_tokens": 25000,
+      "llm_output_minor_per_million_tokens": 500000,
+      "stt_minor_per_minute": 120,
+      "tts_minor_per_million_utf8_bytes": 500000,
+      "carrier_minor_per_minute": 800,
+      "storage_minor_per_gb_month": 1000,
+      "llm_cache_write_30m_minor_per_million_tokens": 125000,
+      "llm_cache_write_12h_minor_per_million_tokens": 250000
+    },
+    "gpt-5.6-terra": {
+      "embedding_minor_per_million_tokens": 2000,
+      "llm_input_minor_per_million_tokens": 200000,
+      "llm_cached_input_minor_per_million_tokens": 50000,
+      "llm_output_minor_per_million_tokens": 1000000,
+      "stt_minor_per_minute": 120,
+      "tts_minor_per_million_utf8_bytes": 500000,
+      "carrier_minor_per_minute": 800,
+      "storage_minor_per_gb_month": 1000,
+      "llm_cache_write_30m_minor_per_million_tokens": 250000,
+      "llm_cache_write_12h_minor_per_million_tokens": 500000
+    },
+    "gpt-5.6-sol": {
+      "embedding_minor_per_million_tokens": 2000,
+      "llm_input_minor_per_million_tokens": 500000,
+      "llm_cached_input_minor_per_million_tokens": 125000,
+      "llm_output_minor_per_million_tokens": 2500000,
+      "stt_minor_per_minute": 120,
+      "tts_minor_per_million_utf8_bytes": 500000,
+      "carrier_minor_per_minute": 800,
+      "storage_minor_per_gb_month": 1000,
+      "llm_cache_write_30m_minor_per_million_tokens": 625000,
+      "llm_cache_write_12h_minor_per_million_tokens": 1250000
+    },
+    "gpt-6-luna": {
+      "embedding_minor_per_million_tokens": 2000,
+      "llm_input_minor_per_million_tokens": 100000,
+      "llm_cached_input_minor_per_million_tokens": 25000,
+      "llm_output_minor_per_million_tokens": 500000,
+      "stt_minor_per_minute": 120,
+      "tts_minor_per_million_utf8_bytes": 500000,
+      "carrier_minor_per_minute": 800,
+      "storage_minor_per_gb_month": 1000,
+      "llm_cache_write_30m_minor_per_million_tokens": 125000,
+      "llm_cache_write_12h_minor_per_million_tokens": 250000
+    },
+    "gpt-6-sol": {
+      "embedding_minor_per_million_tokens": 2000,
+      "llm_input_minor_per_million_tokens": 500000,
+      "llm_cached_input_minor_per_million_tokens": 125000,
+      "llm_output_minor_per_million_tokens": 2500000,
+      "stt_minor_per_minute": 120,
+      "tts_minor_per_million_utf8_bytes": 500000,
+      "carrier_minor_per_minute": 800,
+      "storage_minor_per_gb_month": 1000,
+      "llm_cache_write_30m_minor_per_million_tokens": 625000,
+      "llm_cache_write_12h_minor_per_million_tokens": 1250000
+    },
+    "gpt-6-astra": {
+      "embedding_minor_per_million_tokens": 2000,
+      "llm_input_minor_per_million_tokens": 500000,
+      "llm_cached_input_minor_per_million_tokens": 125000,
+      "llm_output_minor_per_million_tokens": 2500000,
+      "stt_minor_per_minute": 120,
+      "tts_minor_per_million_utf8_bytes": 500000,
+      "carrier_minor_per_minute": 800,
+      "storage_minor_per_gb_month": 1000,
+      "llm_cache_write_30m_minor_per_million_tokens": 625000,
+      "llm_cache_write_12h_minor_per_million_tokens": 1250000
+    },
+    "gpt-6.1-sol": {
+      "embedding_minor_per_million_tokens": 2000,
+      "llm_input_minor_per_million_tokens": 500000,
+      "llm_cached_input_minor_per_million_tokens": 125000,
+      "llm_output_minor_per_million_tokens": 2500000,
+      "stt_minor_per_minute": 120,
+      "tts_minor_per_million_utf8_bytes": 500000,
+      "carrier_minor_per_minute": 800,
+      "storage_minor_per_gb_month": 1000,
+      "llm_cache_write_30m_minor_per_million_tokens": 625000,
+      "llm_cache_write_12h_minor_per_million_tokens": 1250000
+    },
+    "sarvam-105b-conversations": {
+      "embedding_minor_per_million_tokens": 2000,
+      "llm_input_minor_per_million_tokens": 1500,
+      "llm_cached_input_minor_per_million_tokens": 500,
+      "llm_output_minor_per_million_tokens": 6000,
+      "stt_minor_per_minute": 120,
+      "tts_minor_per_million_utf8_bytes": 500000,
+      "carrier_minor_per_minute": 800,
+      "storage_minor_per_gb_month": 1000,
+      "llm_cache_write_30m_minor_per_million_tokens": null,
+      "llm_cache_write_12h_minor_per_million_tokens": null,
+      "sarvam_stt_minor_per_minute": 49,
+      "sarvam_tts_minor_per_million_characters": 100000
+    }
+  }
+}

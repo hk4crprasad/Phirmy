@@ -1,0 +1,41 @@
+{
+  "name": "@phirmy/main-page",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 3200",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 3200",
+    "typecheck": "tsc --noEmit",
+    "studio": "remotion studio src/motion/index.ts --port 3201",
+    "test": "npm run build && playwright test"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "4.2.0",
+    "@mediabunny/server": "1.62.0",
+    "@remotion/captions": "4.0.538",
+    "@remotion/fonts": "4.0.538",
+    "@remotion/media": "4.0.538",
+    "@remotion/media-utils": "4.0.538",
+    "@remotion/player": "4.0.538",
+    "@remotion/whisper-webgpu": "4.0.538",
+    "lucide-react": "^0.468.0",
+    "mediabunny": "1.62.0",
+    "motion": "^12.23.24",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.538"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@remotion/cli": "4.0.538",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "^5.8.2",
+    "vite": "^7.3.1"
+  }
+}

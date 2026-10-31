@@ -1,0 +1,5 @@
+{
+  "namespace": "studio:widget-frame:v1",
+  "ttl_ms": 5000,
+  "read_script": "if redis.call('HLEN', KEYS[1]) == 1 then return redis.call('HGET', KEYS[1], 'value') end return false"
+}

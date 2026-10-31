@@ -1,0 +1,106 @@
+{
+  "support": {
+    "clips": [
+      {
+        "src": "audio/support-0-b30ec86c52.mp3",
+        "text": "Your next customer starts with a question. Make them feel welcome.",
+        "from": 0,
+        "duration": 180,
+        "audioSeconds": 4.806531
+      },
+      {
+        "src": "audio/support-1-887236464d.mp3",
+        "text": "Give clear answers, grounded in the knowledge your team shares.",
+        "from": 180,
+        "duration": 180,
+        "audioSeconds": 4.440816
+      },
+      {
+        "src": "audio/support-2-7a2e254aee.mp3",
+        "text": "Keep the conversation going. Turn a quick question into connection.",
+        "from": 360,
+        "duration": 180,
+        "audioSeconds": 4.336327
+      }
+    ],
+    "duration": 540
+  },
+  "voice": {
+    "clips": [
+      {
+        "src": "audio/voice-0-3592785f29.mp3",
+        "text": "A real connection starts with being heard. Let people speak.",
+        "from": 0,
+        "duration": 180,
+        "audioSeconds": 4.884898
+      },
+      {
+        "src": "audio/voice-1-2579254e14.mp3",
+        "text": "Your AI agent answers from your business knowledge, in a natural voice.",
+        "from": 180,
+        "duration": 180,
+        "audioSeconds": 4.519184
+      },
+      {
+        "src": "audio/voice-2-df886ebcce.mp3",
+        "text": "Less friction. More conversation. Build something people want to talk to.",
+        "from": 360,
+        "duration": 180,
+        "audioSeconds": 5.355102
+      }
+    ],
+    "duration": 540
+  },
+  "leads": {
+    "clips": [
+      {
+        "src": "audio/leads-0-33cd6cdeb4.mp3",
+        "text": "Someone sees potential in what you are building. Start a conversation.",
+        "from": 0,
+        "duration": 180,
+        "audioSeconds": 4.571429
+      },
+      {
+        "src": "audio/leads-1-fc41960382.mp3",
+        "text": "Understand their plans, then ask permission for your team to follow up.",
+        "from": 180,
+        "duration": 180,
+        "audioSeconds": 4.937143
+      },
+      {
+        "src": "audio/leads-2-cf66ff7c07.mp3",
+        "text": "Bring your team the context. Make that first hello count.",
+        "from": 360,
+        "duration": 180,
+        "audioSeconds": 4.649796
+      }
+    ],
+    "duration": 540
+  },
+  "booking": {
+    "clips": [
+      {
+        "src": "audio/booking-0-9ab524ae10.mp3",
+        "text": "Turn curiosity into a conversation. Help someone find a time.",
+        "from": 0,
+        "duration": 180,
+        "audioSeconds": 4.649796
+      },
+      {
+        "src": "audio/booking-1-059752cfab.mp3",
+        "text": "Check your calendar, offer a slot, and ask them to confirm.",
+        "from": 180,
+        "duration": 180,
+        "audioSeconds": 4.388571
+      },
+      {
+        "src": "audio/booking-2-fb62a03eb1.mp3",
+        "text": "Confirm with the calendar before celebrating. Your next connection starts here.",
+        "from": 360,
+        "duration": 182,
+        "audioSeconds": 5.642449
+      }
+    ],
+    "duration": 542
+  }
+}
